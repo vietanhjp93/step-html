@@ -1,0 +1,19 @@
+.steps-container {
+    display: flex;
+    align-items: center;
+}
+.step-swap{
+    background-color: skyblue;
+    min-width: 1px;
+}
+.step-swap-active{
+    background-color: tomato;
+    min-width: 1px;
+}
+.step-divider {
+    border-top-width: 1px;
+    border-top-style: dashed;
+    flex: auto;
+    border-top-color: rgba(0, 0, 0, .12);
+    margin: 0px;
+}

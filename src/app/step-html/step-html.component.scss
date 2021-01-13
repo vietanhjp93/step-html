@@ -17,3 +17,7 @@
     border-top-color: rgba(0, 0, 0, .12);
     margin: 0px;
 }
+.disable {
+    opacity: 0.5;
+    pointer-events: none;
+}

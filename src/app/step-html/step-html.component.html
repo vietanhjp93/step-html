@@ -42,31 +42,20 @@
 </div>
 <p>step-html works!</p>
 <form>
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" checked />
-    <label for="vehicle1"> I have a bike</label><br />
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" checked />
-    <label for="vehicle2"> I have a car</label><br />
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
-    <label for="vehicle3"> I have a boat</label><br />
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" checked />
-    <label for="vehicle1"> I have a bike</label><br />
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" checked />
-    <label for="vehicle2"> I have a car</label><br />
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
-    <label for="vehicle3"> I have a boat</label><br />
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" checked />
-    <label for="vehicle1"> I have a bike</label><br />
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" checked />
-    <label for="vehicle2"> I have a car</label><br />
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
-    <label for="vehicle3"> I have a boat</label><br />
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" checked />
-    <label for="vehicle1"> I have a bike</label><br />
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" checked />
-    <label for="vehicle2"> I have a car</label><br />
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
-    <label for="vehicle3"> I have a boat</label><br />
-    <input type="submit" value="Submit" />
+    
+  <form #myForm="ngForm">
+    <ng-container *ngFor="let b of books; index as i">
+      <div id="checkbox{{i}}" class="all" [ngClass]="{'disable': !books[i].selected && countChecked >= 10}">
+        <!-- ［1］name属性は一意に設定 -->
+        <input type="checkbox" name="book{{i}}"
+          id="book{{i}}"
+          [(ngModel)]="books[i].selected"
+          [value]="i" 
+          (change)="show()">
+          <label>{{b.title}}</label>
+        </div>
+    </ng-container>
+  </form>
     
     <form [formGroup]="formGroup">
     <div formArrayName="list" *ngFor="let item of formGroup.controls.list?.value; let i = index">

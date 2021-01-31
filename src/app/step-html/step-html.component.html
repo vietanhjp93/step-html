@@ -1,67 +1,73 @@
-<p>step-html works!</p>
-<div class="steps-container">
-    <div class="step-swap-active">
-        step 1
-    </div>
-    <div class="step-divider"></div>
-    
-    <div class="step-swap">
-        step 2
-    </div>
-    <div class="step-divider"></div>
-    
-    <div class="step-swap">
-    </div>
-    <div class="step-divider"></div>
-    
-    <div class="step-swap">
-        done
-    </div>
-</div>
-<p>step-html works!</p>
-
-<div class="steps-container">
-    <div class="step-swap">
-        step 1
-    </div>
-    <div class="step-divider"></div>
-    
-    <div class="step-swap">
-        step 2
-    </div>
-    <div class="step-divider"></div>
-    
-    <div class="step-swap">
-        step 3
-    </div>
-    <div class="step-divider"></div>
-    
-    <div class="step-swap-active">
-        done
-    </div>
-</div>
-<p>step-html works!</p>
-<form>
-    
-  <form #myForm="ngForm">
-    <ng-container *ngFor="let b of books; index as i">
-      <div id="checkbox{{i}}" class="all" [ngClass]="{'disable': !books[i].selected && countChecked >= 10}">
-        <!-- ［1］name属性は一意に設定 -->
-        <input type="checkbox" name="book{{i}}"
-          id="book{{i}}"
-          [(ngModel)]="books[i].selected"
-          [value]="i" 
-          (change)="show()">
-          <label>{{b.title}}</label>
-        </div>
-    </ng-container>
-  </form>
-    
-    <form [formGroup]="formGroup">
-    <div formArrayName="list" *ngFor="let item of formGroup.controls.list?.value; let i = index">
-        <ng-container [formGroupName]="i">
-            <input type="checkbox" formControlName="isChecked"> 
-        </ng-container>
+<div class="wrap-page" [ngClass]="isClicked ? 'disable-scroll': ''">
+  <p>step-html works!</p>
+  <div class="img-wrap" (click)="isClicked = !isClicked">
+    <img class="img-class" src="/assets/Counter.jpg" alt="counter">
+  </div>
+  <div class="steps-container">
+      <div class="step-swap-active">
+          step 1
       </div>
+      <div class="step-divider"></div>
+      
+      <div class="step-swap">
+          step 2
+      </div>
+      <div class="step-divider"></div>
+      
+      <div class="step-swap">
+      </div>
+      <div class="step-divider"></div>
+      
+      <div class="step-swap">
+          done
+      </div>
+  </div>
+  <p>step-html works!</p>
+  
+  <div class="steps-container">
+      <div class="step-swap">
+          step 1
+      </div>
+      <div class="step-divider"></div>
+      
+      <div class="step-swap">
+          step 2
+      </div>
+      <div class="step-divider"></div>
+      
+      <div class="step-swap">
+          step 3
+      </div>
+      <div class="step-divider"></div>
+      
+      <div class="step-swap-active">
+          done
+      </div>
+  </div>
+  <p>step-html works!</p>
+  <form>
+      
+    <form #myForm="ngForm">
+      <ng-container *ngFor="let b of books; index as i">
+        <div id="checkbox{{i}}" class="all" [ngClass]="{'disable': !books[i].selected && countChecked >= 10}">
+          <!-- ［1］name属性は一意に設定 -->
+          <input type="checkbox" name="book{{i}}"
+            id="book{{i}}"
+            [(ngModel)]="books[i].selected"
+            [value]="i" 
+            (change)="show()">
+            <label>{{b.title}}</label>
+          </div>
+      </ng-container>
     </form>
-  </form>
+      
+      <form [formGroup]="formGroup">
+      <div formArrayName="list" *ngFor="let item of formGroup.controls.list?.value; let i = index">
+          <ng-container [formGroupName]="i">
+              <input type="checkbox" formControlName="isChecked"> 
+          </ng-container>
+        </div>
+      </form>
+    </form>
+</div>
+<app-zoom-image-view [isClicked]="isClicked"></app-zoom-image-view>

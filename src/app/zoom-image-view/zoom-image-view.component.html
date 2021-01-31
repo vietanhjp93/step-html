@@ -1,0 +1,9 @@
+
+  
+<div class="img-background" [ngClass]="isClicked ? 'active-background': ''">
+</div>
+<div class="zoom-img-wrap" [ngClass]="isClicked ? 'zoom-settings': ''">
+  <button class="close-button" (click)="isClicked = !isClicked">閉じる</button>
+  <!-- <img class="zoom-img" src="/assets/test.png" alt="counter"> -->
+  <img class="zoom-img" src="/assets/Counter.jpg" alt="counter">
+</div>

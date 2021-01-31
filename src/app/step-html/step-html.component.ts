@@ -10,7 +10,7 @@ export class StepHtmlComponent implements OnInit {
 
   formGroup: FormGroup;
   public countChecked = 0;
-
+  public isClicked = false;
   constructor(
     private formBuilder: FormBuilder
   ) {

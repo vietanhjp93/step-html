@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { StepHtmlComponent } from './step-html/step-html.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ZoomImageViewComponent } from './zoom-image-view/zoom-image-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StepHtmlComponent
+    StepHtmlComponent,
+    ZoomImageViewComponent
   ],
   imports: [
     BrowserModule,
